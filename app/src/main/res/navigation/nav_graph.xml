@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:id="@+id/nav_graph.xml">
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/taskFragment">
 
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.mynotebook.TaskFragment"
+        android:label="@string/task_fragment_label"
+        tools:layout="@layout/fragment_task">
+        <action
+            android:id="@+id/action_taskFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_taskFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.mynotebook.AddTaskFragment"
+        android:label="@string/task_fragment_label"
+        tools:layout="@layout/fragment_add_task">
+        <action
+            android:id="@+id/action_addTaskFragment_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.example.mynotebook.TaskDetailFragment"
+        android:label="@string/task_fragment_label"
+        tools:layout="@layout/fragment_task_detail">
+        <argument
+            android:name="task_id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
